@@ -7,7 +7,7 @@ Number of topic covered:
 4. Removed warnning using `YellowBox`
 
 # Day 2
-Navigation between pages should be maintain in same state, so here I have included [ReactNavigtaion](https://reactnavigation.org]).
+Navigation between pages should be maintain in same state, so here I have included [ReactNavigtaion](https://reactnavigation.org).
 
 ReactNavigator carry your data to other pages using appropriate animation also it maintain your back stack.
 
