@@ -5,16 +5,17 @@
  */
 
 import React, { Component } from 'react'
-import { YellowBox } from 'react-native'
 import {
   Platform,
   StyleSheet,
   Text,
   View,
   Button,
-  Alert
+  Alert,
+  YellowBox
 } from 'react-native';
 import  { ListComponent } from './component/ListComponent'
+import { MovieStack }  from './config/router'
 
 YellowBox.ignoreWarnings([
   'Warning: componentWillMount is deprecated',
@@ -35,9 +36,8 @@ export default class App extends Component {
   }
   render() {
     return (
-        <View style={styles.container}>
-        <ListComponent/>
-      </View>
+      <MovieStack>
+       </MovieStack>
     );
   }
 }

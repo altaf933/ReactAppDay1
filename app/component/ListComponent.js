@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, Text, View, Image, StyleSheet } from 'react-native';
-
+import { FlatList, Text, View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 var api = require('./api')
 var productArray = [];
 export class ListComponent extends Component {
@@ -18,7 +17,6 @@ export class ListComponent extends Component {
       .then((responseJson) => {
         productArray = responseJson.results;
         console.log(productArray[0].title);
-        debugger
         this.setState({
           dataSource: productArray,
         });
@@ -27,6 +25,10 @@ export class ListComponent extends Component {
         console.log(error);
       });
   }
+  detailPage = (rowData) => {
+    console.log(JSON.stringify(rowData));
+    this.props.navigation.navigate('MoviesDetail',{...rowData});
+  }
 
   render() {
     return (
@@ -34,16 +36,17 @@ export class ListComponent extends Component {
         <FlatList
           data={this.state.dataSource}
           renderItem={(rowData) =>
-            <View style={styles.flexRoot}>
-              <Image
-                style={styles.image}
-                source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
-              />
-              <View style={styles.flexChild}>
-                <Text style={styles.textTitle}>{rowData.item.title}</Text>
-                <Text style={styles.textSubTitle}>{rowData.item.overview}</Text>
+            <TouchableOpacity onPress={() => this.detailPage(rowData)}>
+              <View style={styles.flexRoot}>
+                <Image
+                  style={styles.image}
+                  source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }} />
+                <View style={styles.flexChild}>
+                  <Text style={styles.textTitle}>{rowData.item.title}</Text>
+                  <Text style={styles.textSubTitle} numberOfLines={3} ellipsizeMode={'clip'}>{rowData.item.overview}</Text>
+                </View>
               </View>
-            </View>
+            </TouchableOpacity>
           }
         />
       </View>
@@ -55,6 +58,8 @@ const styles = StyleSheet.create({
   flexRoot: {
     flex: 1,
     flexDirection: 'row',
+    marginLeft: 3,
+    marginRight: 3
   },
   flexChild: {
     flexDirection: 'column',
@@ -75,7 +80,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     padding: 2,
     textAlign: 'left',
-    color: 'black',
-    numberOfLines: 3
+    color: 'black'
   }
 })

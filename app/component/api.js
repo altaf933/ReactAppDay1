@@ -1,5 +1,5 @@
 var BASE_URL = "https://api.themoviedb.org/3/movie/";
-var API_KEY_VALUE = "Your Key"
+var API_KEY_VALUE = "Your key"
 var LANGUAGE = "en-US"
 var LANGUAGE_KEY = "language"
 var API_KEY = "api_key"
