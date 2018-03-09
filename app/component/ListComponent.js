@@ -16,7 +16,6 @@ export class ListComponent extends Component {
       .then((response) => response.json())
       .then((responseJson) => {
         productArray = responseJson.results;
-        console.log(productArray[0].title);
         this.setState({
           dataSource: productArray,
         });

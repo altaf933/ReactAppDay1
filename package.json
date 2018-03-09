@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json"
   },
   "dependencies": {
     "react": "16.3.0-alpha.1",
     "react-native": "0.54.0",
+    "react-native-material-design": "^0.3.7",
+    "react-native-vector-icons": "^4.5.0",
     "react-navigation": "^1.5.0"
   },
   "devDependencies": {

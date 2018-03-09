@@ -36,7 +36,7 @@ export default class App extends Component {
   }
   render() {
     return (
-      <MovieStack>
+       <MovieStack>
        </MovieStack>
     );
   }
